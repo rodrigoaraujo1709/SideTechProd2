@@ -24,20 +24,20 @@ namespace SideTechProd2.Controllers
 
         }
 
-        /*public async Task<IActionResult> Index(string searchString)
+
+        /*teste filtro*/
+        [HttpGet]
+        public async Task<IActionResult> Index(string Empsearch)
         {
-            var contexto = _context.Funcionarios.Include(f => f.Empresa);
-            return View(await contexto.ToListAsync());
-
-            var Funcionarios = from s in Funcionarios
-                               select s;
-
-            if (!String.IsNullOrEmpty(searchString))
+            ViewData["getfuncionariodetalhes"] = Empsearch;
+            var empquery = from x in _context.Funcionarios select x;
+            if (!string.IsNullOrEmpty(Empsearch))
             {
-                Funcionarios = Funcionarios.Where(s => s.Nome.ToUpper().Contains(searchString.ToUpper()));
+                empquery = empquery.Where(x => x.Nome.Contains(Empsearch));
             }
+            return View(await empquery.AsNoTracking().ToListAsync());
+        }
 
-        }*/
 
         // GET: Funcionario/Details/5
         public async Task<IActionResult> Details(int? id)
