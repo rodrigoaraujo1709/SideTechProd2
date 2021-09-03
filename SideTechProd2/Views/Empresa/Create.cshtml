@@ -3,13 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Empresa</h4>
+<h4>Formulário de criação de nova empresa</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -17,25 +14,27 @@
                 <input asp-for="RazaoSocial" class="form-control" />
                 <span asp-validation-for="RazaoSocial" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="NomeFantasia" class="control-label"></label>
-                <input asp-for="NomeFantasia" class="form-control" />
-                <span asp-validation-for="NomeFantasia" class="text-danger"></span>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="NomeFantasia" class="control-label"></label>
+                    <input asp-for="NomeFantasia" class="form-control" />
+                    <span asp-validation-for="NomeFantasia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Cnpj" class="control-label"></label>
+                    <input asp-for="Cnpj" class="form-control" />
+                    <span asp-validation-for="Cnpj" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Cnpj" class="control-label"></label>
-                <input asp-for="Cnpj" class="form-control" />
-                <span asp-validation-for="Cnpj" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Enviar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Voltar", "Index", "Empresa")
 </div>
 
 @section Scripts {

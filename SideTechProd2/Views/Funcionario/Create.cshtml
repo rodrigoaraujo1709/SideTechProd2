@@ -3,13 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Funcionario</h4>
+<h4>Formulário de criação de novo Funcionario</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -17,34 +14,38 @@
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" />
-                <span asp-validation-for="Cpf" class="text-danger"></span>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Cpf" class="control-label"></label>
+                    <input asp-for="Cpf" class="form-control" />
+                    <span asp-validation-for="Cpf" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Matricula" class="control-label"></label>
+                    <input asp-for="Matricula" class="form-control" />
+                    <span asp-validation-for="Matricula" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Matricula" class="control-label"></label>
-                <input asp-for="Matricula" class="form-control" />
-                <span asp-validation-for="Matricula" class="text-danger"></span>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="DataDeAdmissao" class="control-label"></label>
+                    <input asp-for="DataDeAdmissao" class="form-control" />
+                    <span asp-validation-for="DataDeAdmissao" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Empresa" class="control-label"></label>
+                    <select asp-for="IdEmpresa" class="form-control" asp-items="ViewBag.IdEmpresa"></select>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="DataDeAdmissao" class="control-label"></label>
-                <input asp-for="DataDeAdmissao" class="form-control" />
-                <span asp-validation-for="DataDeAdmissao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdEmpresa" class="control-label"></label>
-                <select asp-for="IdEmpresa" class ="form-control" asp-items="ViewBag.IdEmpresa"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Voltar", "Index", "Funcionario")
 </div>
 
 @section Scripts {
